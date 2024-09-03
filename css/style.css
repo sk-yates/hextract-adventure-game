@@ -1,0 +1,98 @@
+/* ---------------------------------------- Background elements ---------------------------------------- */
+
+* {
+    box-sizing: border-box;
+  }
+
+
+  body {
+    background-color: violet;
+    font-family: system-ui, sans-serif;
+    margin: 0;
+  }
+
+  /* ---------------------------------------- Story Display ---------------------------------------- */
+
+  .displayStory {
+    height: 560px;
+    background-color: black;
+    color: white;
+    padding: 24px 72px;
+    border-color: blueviolet;
+    border-width: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: larger;
+  }
+
+  /* ---------------------------------------- Nav bar ---------------------------------------- */
+
+.optionButtons {
+    background-color: blue;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+.btn {
+    size: auto;
+    background-color: gray;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .diceBox {
+    width: 200px;
+    height: 75px;
+    background-color: gray;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+.dice {
+  width: 100px;
+  height: 100px;
+  color: aliceblue;
+  background-color: black;
+  font-size: 55px;
+}
+
+  /* ---------------------------------------- Crew indicator ---------------------------------------- */
+
+  .crew {
+    width: 70;
+    height: 70px;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .crewMember {
+    width: 55px;
+    height: 70px;
+    background-color: gray;
+    border-radius: 8px;
+    display: flex;
+  }
+
+  #memberIndex {
+    width: 70;
+    height: 70px;
+    color: white;
+    font-style:oblique;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
