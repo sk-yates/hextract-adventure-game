@@ -81,11 +81,9 @@
 
   }
 
-  .crewMember {
-    width: 55px;
+  .crewMember img {
+    width: 70px;
     height: 70px;
-    background-color: gray;
-    border-radius: 8px;
   }
 
   #memberIndex {
