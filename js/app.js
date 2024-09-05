@@ -5,6 +5,14 @@
 const storyTextElement = document.getElementById("storyView");
 const optionButtonsElement = document.querySelector(".optionButtons");
 
+const startButton = document.querySelector('#startButton');
+startButton.addEventListener('click', () => gameStart());
+
+const choiceButtons = document.querySelectorAll('choice');
+
+const crew1 = document.getElementById('crewOne');
+const crew2 = document.getElementById('crewTwo');
+const crew3 = document.getElementById('crewThree');
 
 /*-------------- story content-------------*/
 const textNodes = [
@@ -112,29 +120,20 @@ const textNodes = [
             }
         ]
     },
-
-
 ];
 
-const startButton = document.querySelector('#startButton');
+
 
 let lives = 3;
 
 let dieRoll;
 
-const resetButton = document.getElementById('reset');
-resetButton.addEventListener('click', () => gameStart());
 
-const choiceButtons = document.querySelectorAll('choice');
-
-const crew1 = document.getElementById('crewOne');
-const crew2 = document.getElementById('crewTwo');
-const crew3 = document.getElementById('crewThree');
 
 /*-------------- Functions -------------*/
 
 function gameStart() {
-    resetButton.classList.add("hidden");
+    startButton.classList.add("hidden");
     showTextNode(1);
     console.log(lives);
 };
@@ -201,7 +200,7 @@ function killCrew() {
 
 function gameOver() {
     console.log("game over");
-    resetButton.classList.remove("hidden");
+    startButton.classList.remove("hidden");
     optionButtonsElement.innerHTML = '';
 };
 
@@ -209,7 +208,7 @@ function reset() {
     gameStart();
 };
 
-startButton.addEventListener('click', () => gameStart());
+
 
 
 

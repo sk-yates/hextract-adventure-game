@@ -70,7 +70,7 @@
 
   /* ---------------------------------------- Crew indicator ---------------------------------------- */
 
-  .crew {
+  #crewContainer {
     width: 70;
     height: 70px;
     background-color: black;
