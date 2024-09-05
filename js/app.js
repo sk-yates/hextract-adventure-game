@@ -116,6 +116,8 @@ const textNodes = [
 
 ];
 
+const startButton = document.querySelector('#startButton');
+
 let lives = 3;
 
 let dieRoll;
@@ -135,7 +137,6 @@ function gameStart() {
     resetButton.classList.add("hidden");
     showTextNode(1);
     console.log(lives);
-    killCrew();
 };
 
 function showTextNode(textNodeIndex) {
@@ -162,28 +163,30 @@ function rollDie() {
 
 
 function selectOption(option) {
+    console.log(option);
     rollDie();
     const dieResult = dieRoll;
     if (dieResult >= 3) {
         const nextTextNodeId = option.nextText;
+        console.log('nextTextNodeId', nextTextNodeId);
         showTextNode(nextTextNodeId);
-    
-    } else if (lives >= 2) {
+    } else {
         const failTextNodeId = option.failText;
+        console.log("failTextNodeId", failTextNodeId);
         showTextNode(failTextNodeId);
         lives --;
         console.log(lives);
-
-    } else {
-        const gameOverTextNodeId = option.gameOverText;
-        showTextNode(gameOverTextNodeId);
-        gameOver();
-    }
+        killCrew();
+        if (lives <= 0) {
+            const gameOverTextNodeId = option.gameOverText;
+            console.log("game over", gameOverTextNodeId);
+            showTextNode(gameOverTextNodeId);
+            gameOver();
+        };
+    };
 };
 
 function killCrew() {
-
-
     if (lives === 2) {
         crew1.classList.add("hidden");
         console.log("die, crew 1");
@@ -199,12 +202,14 @@ function killCrew() {
 function gameOver() {
     console.log("game over");
     resetButton.classList.remove("hidden");
+    optionButtonsElement.innerHTML = '';
 };
 
 function reset() {
     gameStart();
 };
 
-gameStart();
+startButton.addEventListener('click', () => gameStart());
+
 
 
