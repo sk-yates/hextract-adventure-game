@@ -20,363 +20,347 @@ const crew5 = document.getElementById('crewFive');
 const textNodes = [
         {
             id: 1, 
-            text: "The crew stands at the airlock of the derelict ship. The AI remains silent, and flickering lights give the only hint of activity. The captain gestures toward a dimly lit corridor, but something feels wrong.",
+            text: "With a shuddering 'clang!' your ship connects with the derelict vessel.",
             options: [
                 {
-                    text: "Proceed down the corridor.",
+                    text: "Enter Airlock",
                     nextText: 2,
-                    failText: 3,
+                    failText: "1-f",
                     gameOverText: "go1"
                 },
+            ]
+        },
+        {
+            id: "1-f", 
+            text: "As you enter the airlock, a random electrical surge kills a crew member.",
+            options: [
                 {
-                    text: "Investigate a nearby control panel.",
-                    nextText: 4,
-                    failText: 5,
+                    text: "Proceed into the airlock",
+                    nextText: 2,
+                    failText: "1-f",
                     gameOverText: "go1"
-                }
+                },
             ]
         },
         {
             id: 2, 
-            text: "The crew cautiously moves down the corridor. Suddenly, the ship's ventilation system hisses and the AI's garbled voice announces, 'Life support compromised.'",
+            text: "The Airlock door is non-operational",
             options: [
                 {
-                    text: "Run back to the airlock.",
-                    nextText: 6,
-                    failText: 7,
+                    text: "Force the door manually",
+                    nextText: 3,
+                    failText: "2a-f",
                     gameOverText: "go1"
                 },
                 {
-                    text: "Manually override the life support system.",
-                    nextText: 8,
-                    failText: 9,
+                    text: "Attempt to restore power",
+                    nextText: 11,
+                    failText: "2b-f",
                     gameOverText: "go1"
                 }
             ]
         },
         {
-            id: 3, 
-            text: "As the crew ventures deeper, a toxic gas vents from the floor. A crew member collapses and dies instantly.",
+            id: "2a-f", 
+            text: "As your force the door, it begins to give...before violently slamming shut, crushing a crew member.",
             options: [
                 {
-                    text: "Return to the airlock.",
-                    nextText: 6,
-                    failText: 7,
+                    text: "Force the door",
+                    nextText: 3,
+                    failText: "2a-f",
                     gameOverText: "go1"
                 },
                 {
-                    text: "Press forward despite the loss.",
-                    nextText: 10,
-                    failText: 11,
+                    text: "Attempt to restore power",
+                    nextText: "",
+                    failText: "",
+                    gameOverText: "go1"
+                }
+            ]
+        },
+        {
+            id: "2b-f", 
+            text: "As you open the console to return power, you tamper with the wrong circut and an arc of electricity kills a crew member.",
+            options: [
+                {
+                    text: "Try forcing the door.",
+                    nextText: 3,
+                    failText: "2a-f",
+                    gameOverText: "go1"
+                },
+            ]
+        },
+        {
+            id: 3, 
+            text: "With enough force, the door opens and clicks into place within it's frame.",
+            options: [
+                {
+                    text: "Call out to any survivors",
+                    nextText: 4,
+                    failText: "3a-f",
+                    gameOverText: "go1"
+                },
+                {
+                    text: "Attempt to access a nearby console",
+                    nextText: 12,
+                    failText: "3b-f",
+                    gameOverText: "go1"
+                }
+            ]
+        },
+        {
+            id: "3a-f", 
+            text: "You call out hoping to hear a voice. Instead, you hear a scuttling in the vents above you. You look around to find one of your crew members is gone!",
+            options: [
+                {
+                    text: "Call out again",
+                    nextText: 4,
+                    failText: "3a-f",
+                    gameOverText: "go1"
+                },
+                {
+                    text: "Proceed forward.",
+                    nextText: 5,
+                    failText: "4-f",
+                    gameOverText: "go1"
+                }
+            ]
+        },
+        {
+            id: "3b-f", 
+            text: "Touching the screen of the console, it flickers for a moment before another flash of electrical light claims a crew member.",
+            options: [
+                {
+                    text: "Proceed forward.",
+                    nextText: 5,
+                    failText: "4-f",
                     gameOverText: "go1"
                 }
             ]
         },
         {
             id: 4, 
-            text: "The control panel flickers as you approach, displaying the ship's systems. It shows multiple system failures. 'Reactor breach imminent' flashes on the screen.",
+            text: "You calls are met by the your own echo down the empty halls of the ship.",
             options: [
                 {
-                    text: "Shut down the reactor manually.",
-                    nextText: 8,
-                    failText: 9,
+                    text: "Proceed forward.",
+                    nextText: 5,
+                    failText: "4-f",
                     gameOverText: "go1"
                 },
+            ]
+        },
+        {
+            id: "4-f", 
+            text: "Intermittent jets of hot steam flood the ship's hallway, one of your crew members misjudges the interval, they're covered by a hot jet of steam and boil in their suit.",
+            options: [
                 {
-                    text: "Leave the control panel and warn the others.",
-                    nextText: 2,
-                    failText: 3,
+                    text: "Proceed forward.",
+                    nextText: 5,
+                    failText: "4-f",
                     gameOverText: "go1"
-                }
+                },
             ]
         },
         {
             id: 5, 
-            text: "As you inspect the control panel, a surge of electricity arcs out, instantly killing one crew member.",
+            text: "Intermittent jets of hot steam flood the ship's hallway, with careful timing and luck you make it through the hallway.",
             options: [
                 {
-                    text: "Return to the airlock.",
+                    text: "Use the echo-locator on your suit to plot the next path.",
                     nextText: 6,
-                    failText: 7,
+                    failText: "5a-f",
                     gameOverText: "go1"
                 },
+            ]
+        },
+        {
+            id: "5a-f", 
+            text: "As the pulse from your echo-locator travels down the hallways, you hear a scuttling in the vents above you. You look around to find one of your crew members is gone!",
+            options: [
                 {
-                    text: "Continue deeper into the ship.",
-                    nextText: 10,
-                    failText: 11,
+                    text: "Spend out another from your echo-locator.",
+                    nextText: 6,
+                    failText: "5a-f",
                     gameOverText: "go1"
-                }
+                },
             ]
         },
         {
             id: 6, 
-            text: "The crew retreats to the airlock, but just as they reach it, the derelict ship powers up slightly. The AI reboots, and systems seem to stabilize.",
+            text: "The pulse returns to wrist display, painting a picture of the path ahead. The ships's core-drive isn't too far.",
             options: [
                 {
-                    text: "Re-enter the ship and investigate further.",
-                    nextText: 10,
-                    failText: 11,
+                    text: "Proceed forward with haste.",
+                    nextText: 8,
+                    failText: "6a-f",
                     gameOverText: "go1"
                 },
                 {
-                    text: "Run a diagnostic scan from the airlock.",
-                    nextText: 4,
-                    failText: 5,
+                    text: "Proceed forward as carefully and quielty as you can.",
+                    nextText: 7,
+                    failText: "6b-f",
                     gameOverText: "go1"
                 }
+            ]
+        },
+        {
+            id: "6a-f", 
+            text: "As you pick up pace moving down the corridor, a dark form lunches from the shadows, snatching one of your crew members.",
+            options: [
+                {
+                    text: "It's too late to slow down now. Keep running!",
+                    nextText: 8,
+                    failText: "6a-f",
+                    gameOverText: "go1"
+                },
+            ]
+        },
+        {
+            id: "6b-f", 
+            text: "Moving slow and quietly hasn't helped your chances. It's time to run!",
+            options: [
+                {
+                    text: "Run!",
+                    nextText: 8,
+                    failText: "6a-f",
+                    gameOverText: "go1"
+                },
             ]
         },
         {
             id: 7, 
-            text: "As the crew rushes back to the airlock, the AI overrides the controls, trapping them inside. A power surge suddenly releases the door, and the crew escapes, though oxygen levels remain dangerously low.",
+            text: "Moving quietly appears to have kept you safe. The entance to the ship's core-drive is just ahead.",
             options: [
                 {
-                    text: "Use emergency oxygen reserves and re-enter the ship.",
-                    nextText: 10,
-                    failText: 11,
+                    text: "Proceed to the core-drive.",
+                    nextText: 8,
+                    failText: "7a-f",
                     gameOverText: "go1"
                 },
+            ]
+        },
+        {
+            id: "7a-f", 
+            text: "As you move towards the door, you turn your head see a crew member dragged into the shadows. It's time to run!",
+            options: [
                 {
-                    text: "Attempt to restart life support systems.",
+                    text: "Run!",
                     nextText: 8,
-                    failText: 9,
+                    failText: "6a-f",
                     gameOverText: "go1"
-                }
+                },
             ]
         },
         {
             id: 8, 
-            text: "You rush to the life support panel. Working together, the crew temporarily stabilizes oxygen levels, but the AI remains unstable.",
+            text: "You make it to the ship's core-drive, looking around you can see extensive damage to the surrounding mechanisms.",
             options: [
                 {
-                    text: "Move deeper into the ship to investigate.",
-                    nextText: 10,
-                    failText: 11,
+                    text: "Extract the core",
+                    nextText: 9,
+                    failText: "8a-f",
                     gameOverText: "go1"
                 },
+            ]
+        },
+        {
+            id: "8a-f", 
+            text: "As you the core is pulled from it's housing, the sound of a geiger counter clicks violently, a crew member succumbs to the radiation dropping to the ground.",
+            options: [
                 {
-                    text: "Return to the airlock with the data.",
-                    nextText: 6,
-                    failText: 7,
+                    text: "Reinsert the core, patch the leak and try again",
+                    nextText: 9,
+                    failText: "8a-f",
                     gameOverText: "go1"
-                }
+                },
             ]
         },
         {
             id: 9, 
-            text: "As the crew works to stabilize the life support, the system overloads. An explosion rips through the corridor, claiming another crew member.",
+            text: "With the core in-hand you being to make your way back to your ship. The sound of the geiger counter ticking steadily with each step. You hear unsettling hisses and the sounds of approaching scratches in the vents above your head",
             options: [
                 {
-                    text: "Press on with the remaining crew.",
+                    text: "Try to run back to your ship.",
                     nextText: 10,
-                    failText: 11,
+                    failText: "9a-f",
                     gameOverText: "go1"
                 },
+            ]
+        },
+        {
+            id: "9a-f", 
+            text: "Dark figures lunge out from the shadows as you run down the corridor. A crew member is caught by the creatures.",
+            options: [
                 {
-                    text: "Return to the airlock.",
-                    nextText: 6,
-                    failText: 7,
+                    text: "You're so close now. KEEP RUNNING!!!",
+                    nextText: 10,
+                    failText: "9a-f",
                     gameOverText: "go1"
-                }
+                },
             ]
         },
         {
             id: 10, 
-            text: "You reach the ship's core. In the shadows, something moves—a creature. The ship's AI continues to malfunction. Every choice from now on is crucial.",
+            text: "<h1>You make it back to your ship.</h1> <br/> Finally safe!",
             options: [
                 {
-                    text: "Investigate the noise.",
-                    nextText: 12,
-                    failText: 13,
+                    text: "End the game",
+                    nextText: 0,
+                    failText: 0,
                     gameOverText: "go1"
                 },
-                {
-                    text: "Attempt to power down the AI system.",
-                    nextText: 14,
-                    failText: 15,
-                    gameOverText: "go1"
-                }
             ]
         },
         {
             id: 11, 
-            text: "As the crew presses forward, the creature emerges from the shadows, attacking a crew member and killing them instantly. Time is running out.",
+            text: "Power returns and the door slides open and click into place within it's frame.",
             options: [
                 {
-                    text: "Continue toward the ship's core.",
-                    nextText: 10,
-                    failText: 13,
+                    text: "Call out to any survivors",
+                    nextText: 4,
+                    failText: "3a-f",
                     gameOverText: "go1"
                 },
                 {
-                    text: "Return to the airlock.",
-                    nextText: 6,
-                    failText: 7,
+                    text: "Attempt to access a nearby console",
+                    nextText: 12,
+                    failText: "3b-f",
                     gameOverText: "go1"
                 }
             ]
         },
         {
             id: 12, 
-            text: "You move closer to the noise. The creature is quick and vicious, killing a crew member instantly. There's no time to mourn.",
+            text: "The console flickers with dim light for a moment before the screen goes dark.",
             options: [
                 {
-                    text: "Escape with the remaining crew.",
-                    nextText: 16,
-                    failText: 17,
+                    text: "Proceed forward.",
+                    nextText: 5,
+                    failText: "4-f",
+                    gameOverText: "go1"
+                },
+            ]
+        },
+        {
+            id: "go1", 
+            text: "Your crew are gone. There are no surivors of this mission. <br/> What killed your crew? <br/> The creatures in the shadows? The unstable ship? Perhaps, it was just a few poor choices. <br/> Eitherway... <br/> <h1> Game Over </h1>",
+            options: [
+                {
+                    text: "restart",
+                    nextText: 1,
+                    failText: 1,
                     gameOverText: "go1"
                 },
                 {
-                    text: "Fight the creature.",
-                    nextText: 14,
-                    failText: 15,
+                    text: "restart",
+                    nextText: 1,
+                    failText: 1,
                     gameOverText: "go1"
                 }
             ]
         },
-        {
-            id: 13, 
-            text: "The AI suddenly powers down as you get closer to the core, but it triggers an automated defense system. A barrage of lasers claims another crew member.",
-            options: [
-                {
-                    text: "Press on with the remaining crew.",
-                    nextText: 10,
-                    failText: 11,
-                    gameOverText: "go1"
-                },
-                {
-                    text: "Retreat to the airlock.",
-                    nextText: 6,
-                    failText: 7,
-                    gameOverText: "go1"
-                }
-            ]
-        },
-        {
-            id: 14, 
-            text: "You reach the AI's mainframe. It flickers with power, and the creature stalks closer. Time is running out to shut it down.",
-            options: [
-                {
-                    text: "Shut down the AI system.",
-                    nextText: 8,
-                    failText: 9,
-                    gameOverText: "go1"
-                },
-                {
-                    text: "Escape back to the airlock.",
-                    nextText: 6,
-                    failText: 7,
-                    gameOverText: "go1"
-                }
-            ]
-        },
-        {
-            id: 15, 
-            text: "The creature lunges as you attempt to shut down the AI!",
-            options: [
-                {
-                    text: "Dodge the creature!",
-                    nextText: 10,
-                    failText: 11,
-                    gameOverText: "go1"
-                }
-            ]
-        },
-        {
-            id: 16, 
-            text: "You manage to escape from the creature and make it to the airlock. However, the ship's systems remain unstable. The escape pod seems functional, but the AI is attempting to override the controls.",
-            options: [
-                {
-                    text: "Initiate the escape pod launch sequence.",
-                    nextText: 18,
-                    failText: 19,
-                    gameOverText: "go1"
-                },
-                {
-                    text: "Try to disable the AI remotely.",
-                    nextText: 20,
-                    failText: 21,
-                    gameOverText: "go1"
-                }
-            ]
-        },
-        {
-            id: 17, 
-            text: "As you run towards the airlock, the creature cuts you off, ripping through the crew. The escape is unsuccessful.",
-            options: [
-                {
-                    text: "Retry the escape.",
-                    nextText: 16,
-                    failText: 19,
-                    gameOverText: "go1"
-                }
-            ]
-        },
-        {
-            id: 18, 
-            text: "The escape pod launches just as the derelict ship begins to collapse. You and the surviving crew members drift into the cold void of space.",
-            options: [
-                {
-                    text: "Well done! You've escaped Click to try again!",
-                    nextText: 0,
-                    failText: 0,
-                    gameOverText: "go1"
-                }
-            ]
-        },
-        {
-            id: 19, 
-            text: "The escape pod fails to launch. As you scramble to fix the controls, the ship's AI shuts down oxygen supply. The crew succumbs to the cold grip of space.",
-            options: [
-                {
-                    text: "Retry the escape.",
-                    nextText: 16,
-                    failText: 19,
-                    gameOverText: "go1"
-                }
-            ]
-        },
-        {
-            id: 20, 
-            text: "You successfully disable the AI, but the ships systems begin a catastrophic failure. You need to get to the escape pod now.",
-            options: [
-                {
-                    text: "Launch the escape pod.",
-                    nextText: 18,
-                    failText: 19,
-                    gameOverText: "go1"
-                }
-            ]
-        },
-        {
-            id: 21, 
-            text: "You try to disable the AI, but the system overloads. An explosion tears through the airlock, sealing your fate.",
-            options: [
-                {
-                    text: "Retry the escape.",
-                    nextText: 16,
-                    failText: 19,
-                    gameOverText: "go1"
-                }
-            ]
-        },
-        {
-        id: "go1", 
-        text: "Your crew are gone. There are no surivors of this mission. <br/> What caused the death of your final crew member? <br/> The creature in the shadows? The unstable AI? <br/> Eitherway... <br/> <h1> Game Over </h1>",
-        options: [
-            {
-                text: "Start game",
-                nextText: 2,
-                gameOverText: "go1"
-            },
-            {
-                text: "Start game",
-                nextText: 2,
-                gameOverText: "go1"
-            }
-        ]
-    }
-];
+    ];
 
 
 
@@ -431,7 +415,7 @@ function selectOption(option) {
     if (dieResult >= 3) {
         const nextTextNodeId = option.nextText;
         if (nextTextNodeId === 0) {
-            return gameStart();
+            return gameOver(); //change to: gameOver()
         };
         console.log('nextTextNodeId', nextTextNodeId);
         showTextNode(nextTextNodeId);
@@ -439,7 +423,7 @@ function selectOption(option) {
     } else {
         const failTextNodeId = option.failText;
         if (failTextNodeId === 0) {
-            return gameStart();
+            return gameOver(); //change to: gameOver()
         };
         console.log("failTextNodeId", failTextNodeId);
         showTextNode(failTextNodeId);

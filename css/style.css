@@ -64,11 +64,7 @@
   font-size: 55px;
 }
 
-.hidden {
-  display: none;
-}
-
-  /* ---------------------------------------- Crew indicator ---------------------------------------- */
+/* ---------------------------------------- Crew indicator ---------------------------------------- */
 
   #crewContainer {
     width: 70;
@@ -96,4 +92,11 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+
+
+/* ---------------------------------------- assignable classes ---------------------------------------- */
+
+  .hidden {
+    display: none;
   }
