@@ -1,5 +1,3 @@
-//* file://wsl.localhost/Ubuntu/home/sk-yates/code/ga/projects/browser-based-game-project/hextract-adventure-game/index.html
-
 /*-------------- Constants -------------*/
 
 const storyTextElement = document.getElementById("storyView");
@@ -415,7 +413,7 @@ function selectOption(option) {
     if (dieResult >= 3) {
         const nextTextNodeId = option.nextText;
         if (nextTextNodeId === 0) {
-            return gameOver(); //change to: gameOver()
+            return gameOver();
         };
         console.log('nextTextNodeId', nextTextNodeId);
         showTextNode(nextTextNodeId);
@@ -423,7 +421,7 @@ function selectOption(option) {
     } else {
         const failTextNodeId = option.failText;
         if (failTextNodeId === 0) {
-            return gameOver(); //change to: gameOver()
+            return gameOver();
         };
         console.log("failTextNodeId", failTextNodeId);
         showTextNode(failTextNodeId);
