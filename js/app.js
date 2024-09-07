@@ -374,7 +374,6 @@ function gameStart() {
     startButton.classList.add("hidden");
     showTextNode(1);
     lives = 5;
-    console.log(lives);
     crew1.classList.remove("hidden");
     crew2.classList.remove("hidden");
     crew3.classList.remove("hidden");
@@ -406,16 +405,13 @@ function rollDie() {
 
 
 function selectOption(option) {
-    console.log(option);
     rollDie();
     const dieResult = dieRoll;
-    console.log(`Dice: ${dieRoll}`);
     if (dieResult >= 3) {
         const nextTextNodeId = option.nextText;
         if (nextTextNodeId === 0) {
             return gameOver();
         };
-        console.log('nextTextNodeId', nextTextNodeId);
         showTextNode(nextTextNodeId);
    
     } else {
@@ -423,14 +419,11 @@ function selectOption(option) {
         if (failTextNodeId === 0) {
             return gameOver();
         };
-        console.log("failTextNodeId", failTextNodeId);
         showTextNode(failTextNodeId);
         lives --;
-        console.log(lives);
         killCrew();
         if (lives <= 0) {
             const gameOverTextNodeId = option.gameOverText;
-            console.log("game over", gameOverTextNodeId);
             showTextNode(gameOverTextNodeId);
             gameOver();
         };
@@ -440,24 +433,18 @@ function selectOption(option) {
 function killCrew() {
     if (lives === 4) {
         crew1.classList.add("hidden");
-        console.log("die, crew 1");
     } else if (lives === 3) {
         crew2.classList.add("hidden");
-        console.log("die, crew 2");
     } else if (lives === 2) {
         crew3.classList.add("hidden");
-        console.log("die, crew 3");
     } else if (lives === 1) {
         crew4.classList.add("hidden");
-        console.log("die, crew 4");
     } else if (lives === 0) {
         crew5.classList.add("hidden");
-        console.log("die, crew 5");
     }
 };
 
 function gameOver() {
-    console.log("game over");
     startButton.classList.remove("hidden");
     optionButtonsElement.innerHTML = '';
 };
