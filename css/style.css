@@ -6,7 +6,7 @@
 
 
   body {
-    background-color: violet;
+    background-color: black;
     font-family: system-ui, sans-serif;
     margin: 0;
   }
@@ -24,10 +24,19 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    font-size: larger;
+    font-size: 30px;
   }
 
   /* ---------------------------------------- Nav bar ---------------------------------------- */
+
+#startButton {
+  background-color: #00FFFF;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 25px;
+}
 
 .optionButtons {
     background-color: blue;
@@ -37,30 +46,28 @@
   }
 
 .btn {
-    size: auto;
-    background-color: gray;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
+  background-color: #D100FF;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 30px;
+  cursor: pointer;
+  border: none;
 
   }
 
   .diceBox {
-    width: 200px;
-    height: 75px;
-    background-color: gray;
-    border-radius: 8px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
   }
 
 .dice {
   width: 100px;
   height: 100px;
-  color: aliceblue;
-  background-color: black;
+  color: #00FFFF;
+  background-color: #1A0029;
   font-size: 55px;
 }
 
@@ -78,8 +85,8 @@
   }
 
   .crewMember img {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
   }
 
   #memberIndex {
@@ -87,6 +94,7 @@
     height: 70px;
     color: white;
     font-style:oblique;
+    font-size: 30px;
     background-color: black;
     display: flex;
     flex-direction: row;

@@ -70,8 +70,8 @@ const textNodes = [
                 },
                 {
                     text: "Attempt to restore power",
-                    nextText: "",
-                    failText: "",
+                    nextText: 11,
+                    failText: "2d-f",
                     gameOverText: "go1"
                 }
             ]
